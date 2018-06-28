@@ -1,6 +1,6 @@
 var VideoListEntry = (props) => {
   console.log('inside entry', props);
-  return <div className="video-list-entry media" onClick={function(){props.clickHandler(props.video.id.videoId);}}>
+  return <div className="video-list-entry media" onClick={function() { props.clickHandler(props.video); } }>
     <div className="media-left media-middle">
       <img className="media-object" src={props.video.snippet.thumbnails.default.url} alt="" />
     </div>

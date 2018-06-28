@@ -1,13 +1,19 @@
-var VideoList = (props) => (
-  <div className="video-list">
+var VideoList = (props) => {
      
-    {console.log(props)}
-    {props.videos.map(video => <VideoListEntry video={video} clickHandler = {props.clickHandler}/>)}
-    
-    {/*{props.videos.map(video => ReactDOM.render(<videoListEntry video={video} />, document.getElementsByClassName('video-list')[0]))}*/}
+  for (var idx = 0; idx < props.videos.length; idx++) {
+    props.allVideos.push(props.videos[idx]);
+  }
+  return (
+    <div className="video-list">
 
-  </div>
-);
+      {props.videos.map(video => (<VideoListEntry video={video} clickHandler = {props.clickHandler}/>) )}
+
+      {/*console.log('props.allVideos', props.allVideos)*/}
+      {/*{props.videos.map(video => ReactDOM.render(<videoListEntry video={video} />, document.getElementsByClassName('video-list')[0]))}*/}
+
+    </div>
+  );
+};
 
 // PropTypes tell other developers what `props` a component expects
 // Warnings will be shown in the console when the defined rules are violated

@@ -20,7 +20,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentVideo: window.exampleVideoData[1],
+      currentVideo: window.exampleVideoData[1], //should be the entire video obj
       allVideos: []
     };
 
@@ -35,7 +35,7 @@ class App extends React.Component {
     // set this.state.currentVideo to the id received by click.
   }
    
-  setState(){
+  setState() {
     // what did we click on?
     //currentVideo: 'FIX_ME',
   }
@@ -61,8 +61,9 @@ class App extends React.Component {
           </div>
           <div className="col-md-5">
             <VideoList 
-              videos={window.exampleVideoData}
+              videos={window.exampleVideoData} // data source to app in general
               clickHandler = {this.handleClickParent.bind(this)} 
+              allVideos = {this.state.allVideos} // will update the state list.
             />
           </div>
         </div>
