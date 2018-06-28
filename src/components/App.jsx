@@ -35,16 +35,26 @@ class App extends React.Component {
     // set this.state.currentVideo to the id received by click.
   }
    
-  setState() {
-    // what did we click on?
-    //currentVideo: 'FIX_ME',
-  }
+  // setState() {
+  //   // what did we click on?
+  //   //currentVideo: 'FIX_ME',
+  // }
   // Added 'event' to handleClick.
-  handleClickParent(incomingId) {
-    console.log('incomingId', incomingId);
-    console.log('something was clicked?', event);
-    //setState();
-
+  handleClickParent(incomingVideo) {
+    //console.log('incomingId', incomingVideo);
+    //this.state.currentVideo = incomingVideo;
+    console.log('prior', this.state);
+    
+    //this.setState(() => {return {currentVideo: incomingVideo}})
+    
+    this.setState({currentVideo: incomingVideo});
+    
+    //this.setState({ currentVideo: incomingVideo }, function() {
+    /*<VideoPlayer video = {this.state.currentVideo}/>;*/
+    //   console.log('callback executed');
+    // });
+    
+    console.log('post', this.state);
   }
   
   render() {
