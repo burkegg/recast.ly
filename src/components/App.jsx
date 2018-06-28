@@ -9,29 +9,42 @@
 //(for isntane, we want to get the clicked element's video ID)
 //and also how/if it changes the App's state property
 
+
+
+// currently can pass video into player.  added this.state.currentVideo 
+// to where we generate the current video.
+
+// what does this line do?: this.handleClick = this.increase.bind(this); 
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentVideo: null,
+      currentVideo: window.exampleVideoData[1],
       allVideos: []
     };
+
+    //this.handleClickParent = this.handleClickParent.bind(this);
+
+
   }
   
   getCurrentVideoInfo() {
     //onClick=this.
     // when we click on a video get the clicked video's id.
     // set this.state.currentVideo to the id received by click.
-    
   }
-  
-  handleClick() {
-    this.onClick.bind(this),
+   
+  setState(){
+    // what did we click on?
+    //currentVideo: 'FIX_ME',
+  }
+  // Added 'event' to handleClick.
+  handleClickParent(incomingId) {
+    console.log('incomingId', incomingId);
+    console.log('something was clicked?', event);
+    //setState();
 
-    this.setState({
-      // what did we click on?
-      currentVideo: 'FIX_ME'
-    });
   }
   
   render() {
@@ -44,14 +57,13 @@ class App extends React.Component {
         </nav>
         <div className="row">
           <div className="col-md-7">
-            <VideoPlayer video={window.exampleVideoData[0]}/>
+            <VideoPlayer video={this.state.currentVideo}/>
           </div>
           <div className="col-md-5">
-            {/*<div><h5><em>videoList</em> view goes here</h5></div>*/}
             <VideoList 
-              videos={window.exampleVideoData} 
+              videos={window.exampleVideoData}
+              clickHandler = {this.handleClickParent.bind(this)} 
             />
-            {console.log(window.exampleVideoData)}
           </div>
         </div>
       </div>

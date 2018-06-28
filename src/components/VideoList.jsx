@@ -1,18 +1,8 @@
 var VideoList = (props) => (
   <div className="video-list">
-    
-    
-    {/*
-      {console.log('props', props)}
-    {console.log('props.videos[0]', props.videos[0])}
-      <videoListEntry video = {props.videos[0]}/>
-    
-    <div><h5><em>videoListEntry</em> view goes here</h5></div>
-    <div><h5><em>videoListEntry</em> view goes here</h5></div>
-    <div><h5><em>videoListEntry</em> view goes here</h5></div>
-    <div><h5><em>videoListEntry</em> view goes here</h5></div>
-    <div><h5><em>videoListEntry</em> view goes here</h5></div>*/}
-    {props.videos.map(video => <VideoListEntry video={video} />)}
+     
+    {console.log(props)}
+    {props.videos.map(video => <VideoListEntry video={video} clickHandler = {props.clickHandler}/>)}
     
     {/*{props.videos.map(video => ReactDOM.render(<videoListEntry video={video} />, document.getElementsByClassName('video-list')[0]))}*/}
 
