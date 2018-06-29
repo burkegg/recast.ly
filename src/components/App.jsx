@@ -8,31 +8,31 @@ class App extends React.Component {
       allVideos: []
     };
 
-    //this.handleClickParent = this.handleClickParent.bind(this);
-
-
   }
   
+  getYouTubeVideos(query) {
+    var options = {
+      // key:  API KEY
+      q: query
+    };
 
+    this.props.searchYouTube(options, function(videos) {
+      console.log(videos);
+      this.setState({
+        allVideos: videos,
+        currentVideo: videos[0]
+      });
+    }.bind(this)
+    ); 
+  }
   handleClickParent(incomingVideo) {
-    //console.log('incomingId', incomingVideo);
-    //this.state.currentVideo = incomingVideo;
-    console.log('prior', this.state);
-    
-    //this.setState(() => {return {currentVideo: incomingVideo}})
-    
+    console.log('prior', this.state); 
     this.setState({currentVideo: incomingVideo});
-    
-    //this.setState({ currentVideo: incomingVideo }, function() {
-    /*<VideoPlayer video = {this.state.currentVideo}/>;*/
-    //   console.log('callback executed');
-    // });
-    
     console.log('post', this.state);
   }
    
   render() {
-    
+
     return ( 
       <div>
         <nav className="navbar">
