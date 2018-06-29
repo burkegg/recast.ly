@@ -8,16 +8,14 @@ var searchYouTube = (options, callback) => {
     key: 'AIzaSyAq9DsOtUMSU7klJ5k7dEp1doL4T6wAegk',
     type: 'video'
   };
-  //defaults = _.assign(defaults, options);
   defaults.maxResults = options.max;
   defaults.q = options.query;
   defaults.key = options.key || defaults.key;
-  // console.log('defaults' , defaults);
-  // console.log('params', params);
+
   $.ajax({
     url: 'https://www.googleapis.com/youtube/v3/search',
     type: 'GET',
-    dataType: 'JSON',
+    contentType: 'application/json',
     data: defaults,
 
     success: function(data) {
