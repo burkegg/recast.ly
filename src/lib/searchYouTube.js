@@ -3,17 +3,22 @@ var searchYouTube = (options, callback) => {
   var defaults = {
     maxResults: 5,
     videoEmbeddable: 'true',
-    query: 'dogs',
+    q: 'dogs',
     part: 'snippet',
     key: 'AIzaSyAq9DsOtUMSU7klJ5k7dEp1doL4T6wAegk',
     type: 'video'
   };
-  options = defaults;
+  //defaults = _.assign(defaults, options);
+  defaults.maxResults = options.max;
+  defaults.q = options.query;
+  defaults.key = options.key || defaults.key;
+  // console.log('defaults' , defaults);
+  // console.log('params', params);
   $.ajax({
     url: 'https://www.googleapis.com/youtube/v3/search',
     type: 'GET',
     dataType: 'JSON',
-    data: options,
+    data: defaults,
 
     success: function(data) {
       console.log(data);
