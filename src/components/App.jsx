@@ -1,21 +1,5 @@
 
 
-// We are going to do a help desk request first thing.
-// Looking to pass the click handler down,
-// we don't understand the ideas involved,
-// but we know that passing a handler down is possible.
-// Want to figure out how to bind the click handler to 
-// a particular element and transmit attributes about hte leement back.
-//(for isntane, we want to get the clicked element's video ID)
-//and also how/if it changes the App's state property
-
-
-
-// currently can pass video into player.  added this.state.currentVideo 
-// to where we generate the current video.
-
-// what does this line do?: this.handleClick = this.increase.bind(this); 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -29,17 +13,7 @@ class App extends React.Component {
 
   }
   
-  getCurrentVideoInfo() {
-    //onClick=this.
-    // when we click on a video get the clicked video's id.
-    // set this.state.currentVideo to the id received by click.
-  }
-   
-  // setState() {
-  //   // what did we click on?
-  //   //currentVideo: 'FIX_ME',
-  // }
-  // Added 'event' to handleClick.
+
   handleClickParent(incomingVideo) {
     //console.log('incomingId', incomingVideo);
     //this.state.currentVideo = incomingVideo;
@@ -56,13 +30,14 @@ class App extends React.Component {
     
     console.log('post', this.state);
   }
-  
+   
   render() {
+    
     return ( 
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <div><h5><em>search</em> view goes here</h5></div>
+            <Search />
           </div>
         </nav>
         <div className="row">
