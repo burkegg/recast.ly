@@ -5,7 +5,7 @@ var searchYouTube = (options, callback) => {
     videoEmbeddable: 'true',
     q: 'dogs',
     part: 'snippet',
-    key: 'AIzaSyAq9DsOtUMSU7klJ5k7dEp1doL4T6wAegk',
+    key: 'API_KEY',
     type: 'video'
   };
   defaults.maxResults = options.max;
